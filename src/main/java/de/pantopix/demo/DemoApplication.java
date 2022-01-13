@@ -1,17 +1,43 @@
 package de.pantopix.demo;
 
+import de.pantopix.AnnotationDemo.NokiaSeries;
+import de.pantopix.BuilderDemo.DeviceBuilder;
+import de.pantopix.factoryDemo.Shape;
+import de.pantopix.factoryDemo.ShapeFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
 
 import java.io.*;
-import java.net.URLDecoder;
 
 @SpringBootApplication
 public class DemoApplication {
 
 	public static void main(String[] args) throws IOException {
-		SpringApplication.run(DemoApplication.class, args);
-		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+		ApplicationContext apc = SpringApplication.run(DemoApplication.class, args);
+		for (String s : apc.getBeanDefinitionNames()){
+			System.out.println(s);
+		}
+
+		// Instantiate an Object with the factory and check the created object
+		ShapeFactory shapeFactory = new ShapeFactory();
+		// get an object of type Circle
+		Shape shape1 = ShapeFactory.getShape("rectangle");
+		shape1.draw();
+
+
+		// Intantiante an object with the builder
+		Object device = new DeviceBuilder().setName("rapsberry pi").build();
+		System.out.println(device);
+
+		// use aanotation
+		//Object nokia = new NokiaSeries("3310", 15);
+
+		NokiaSeries nokia = new NokiaSeries("fire",8);
+		Class c = nokia.getClass();
+
+		/*System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		String classLoc=null;
 		String jarLoc = null;
 
@@ -43,9 +69,6 @@ public class DemoApplication {
 
 		System.out.println("#################################### jarLoc" + jarLoc);
 
-
-		/*******************************************  read from jar file *************************************/
-
 		InputStream is = DemoApplication.class.getResourceAsStream("/tmp/book.xml");
 		String pathName = DemoApplication.class.getResourceAsStream("/tmp/book.xml").toString();
 		InputStreamReader isr = new InputStreamReader(is);
@@ -56,7 +79,15 @@ public class DemoApplication {
 			System.out.println(line);
 		}
 
-		System.out.println(pathName);
+		System.out.println(pathName);*/
+
+		/*#################################################################################################*/
+
+	}
+
+	@Bean
+	public String getName(){
+		return "joekrom";
 	}
 
 }
