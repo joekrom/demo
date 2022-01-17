@@ -17,6 +17,19 @@
 		<java.version>11</java.version>
 		<!--<start-class>de.pantopix.demo.DemoApplication</start-class>-->
 	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.eclipse.rdf4j</groupId>
+				<artifactId>rdf4j-bom</artifactId>
+				<version>2.1.4</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -49,6 +62,31 @@
 			<version>3.1.0</version>
 			<classifier>data</classifier>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.eclipse.rdf4j/rdf4j-rio -->
+		<dependency>
+			<groupId>org.eclipse.rdf4j</groupId>
+			<artifactId>rdf4j-rio</artifactId>
+			<version>4.0.0-M1</version>
+			<type>pom</type>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.eclipse.rdf4j/rdf4j-model -->
+		<dependency>
+			<groupId>org.eclipse.rdf4j</groupId>
+			<artifactId>rdf4j-model</artifactId>
+			<version>4.0.0-M1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.rdf4j</groupId>
+			<artifactId>rdf4j-runtime</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.rdf4j</groupId>
+			<artifactId>rdf4j-queryresultio-text</artifactId>
+		</dependency>
+
+
 	</dependencies>
 
 	<packaging>jar</packaging>

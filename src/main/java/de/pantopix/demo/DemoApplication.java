@@ -4,6 +4,7 @@ import de.pantopix.AnnotationDemo.NokiaSeries;
 import de.pantopix.BuilderDemo.DeviceBuilder;
 import de.pantopix.factoryDemo.Shape;
 import de.pantopix.factoryDemo.ShapeFactory;
+import de.pantopix.rdf4jDemo.rdf4jImpl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -36,6 +37,11 @@ public class DemoApplication {
 
 		NokiaSeries nokia = new NokiaSeries("fire",8);
 		Class c = nokia.getClass();
+
+
+		// rfd test
+		/*rdf4jImpl rdf = new rdf4jImpl();
+		rdf.transform();*/
 
 		/*System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		String classLoc=null;
