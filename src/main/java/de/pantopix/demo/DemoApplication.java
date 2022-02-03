@@ -4,16 +4,17 @@ import de.pantopix.AnnotationDemo.NokiaSeries;
 import de.pantopix.BuilderDemo.DeviceBuilder;
 import de.pantopix.factoryDemo.Shape;
 import de.pantopix.factoryDemo.ShapeFactory;
-import de.pantopix.rdf4jDemo.rdf4jImpl;
+import de.pantopix.generics.MyClass;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
 
 import java.io.*;
 
 @SpringBootApplication
 public class DemoApplication {
+
+
 
 	public static void main(String[] args) throws IOException {
 		ApplicationContext apc = SpringApplication.run(DemoApplication.class, args);
@@ -38,15 +39,17 @@ public class DemoApplication {
 		NokiaSeries nokia = new NokiaSeries("fire",8);
 		Class c = nokia.getClass();
 
+		/*genarics  test*/
 
-		// rfd test
-		/*rdf4jImpl rdf = new rdf4jImpl();
-		rdf.transform();*/
+		MyClass<Integer> obj1 = new MyClass<>(10);
+		MyClass<String> obj2 = new MyClass<>("coucou");
+		MyClass<Double> obj3 = new MyClass<>(20.0);
+
+		obj2.showType();
 
 		/*System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		String classLoc=null;
 		String jarLoc = null;
-
 
 		String path = DemoApplication.class.getProtectionDomain().getCodeSource().getLocation().toString();
 		classLoc = DemoApplication.class.getProtectionDomain().getCodeSource().getLocation().toString();
@@ -91,9 +94,10 @@ public class DemoApplication {
 
 	}
 
-	@Bean
-	public String getName(){
-		return "joekrom";
-	}
+	/*@Bean
+	public static String getProp(){
+		return test;
+	}*/
+
 
 }
