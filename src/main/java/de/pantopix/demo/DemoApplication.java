@@ -41,9 +41,9 @@ public class DemoApplication {
 
 		/*genarics  test*/
 
-		MyClass<Integer> obj1 = new MyClass<>(10);
-		MyClass<String> obj2 = new MyClass<>("coucou");
-		MyClass<Double> obj3 = new MyClass<>(20.0);
+		MyClass<Integer, String> obj1 = new MyClass<>(10, "zidane");
+		MyClass<String,String> obj2 = new MyClass<>("real","zz");
+		MyClass<Double,Integer> obj3 = new MyClass<>(20.0,10);
 
 		obj2.showType();
 
